@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <h1>我是开始页<h1> -->
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="js/d.js"></script>
+<script type="text/javascript">
+var boltime;
+window.onload = ()=>{
+  time('Jan 1,2020','Jul 8,2019').then((x)=>{
+     if(x == "yes"){//如果是之前注册是
+       window.location.href='home.html'
+     }else{//如果不是之前注册的
+       window.location.href='login.html'
+     }
+  })
+}
+
+
+ // 判断是否是某个时间之前   
+function time(time,newtime){
+  return new Promise((res,rej)=>{
+	if(Date.parse(newtime) <= Date.parse(time)){
+	     boltime = true;//就是在2020年1月1日之前注册的
+	     res("yes")
+	   }else{
+	     boltime = false;//不是在2020年1月1日之前注册 
+	     res("no")    
+	  }
+	})
+}
+
+
+  
+
+
+
+</script>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<title></title>
+	<!--引入pageSlider所需样式表-->
+	<link rel="stylesheet" href="css/pageSlider.css">
+	<!--引入zepto.js-->
+	<script src="https://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<!--引入pageSlider.js文件-->
+	<script src="js/pageSlider.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="js/d.js"></script>
+	<script src="js/iconfont.js"></script>
+    <link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/iconfont.css">
+	<style type="text/css">
+	    *{margin: 0;padding: 0;}
+	    body,html{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+		.sec1{
+			background: url("image/bg_15@2x.jpg");background-size: 100% 100%;
+		}
+		.sec2{
+			background: url("image/bg_3@2x.jpg");background-size: 100% 100%;
+		}
+		.sec3{
+			/*background: url('image/bg_4@2x.jpg') 0 0/100% 100%;*/
+			/*background-size: 100% 100%;*/
+		}
+		.sec4{background: url('image/bg_5@2x.jpg') 0 0/100% 100%;}
+		.sec5{background: url('image/bg_6@2x.jpg') 0 0/100% 100%;}
+		.sec1 span{font-size: .3rem;color: #fff;}
+		.sec1 span:nth-child(1){
+			position: absolute;
+		    left: 25.6%;
+		    top: 50.2%;
+		}
+		.sec1 span:nth-child(2){
+			position: absolute;
+		    left: 70.5%;
+		    top: 58%;
+		}
+		.sec1 span:nth-child(3){
+			position: absolute;
+			left: 25.6%;
+			top:63.7%;
+		}
+		.sec1 span:nth-child(4){
+			position: absolute;
+			left: 70.5%;
+			top:72%;
+		}
+		.sec1 span:nth-child(5){
+			position: absolute;
+			left: 24.6%;
+			top:80%;
+		}
+		.sec2 img{
+			 position: absolute;left: 23%;bottom:11%;width: 60%;
+		}
+		.sec2 .times{font-size: 1.3rem;position: absolute;left: 3.7rem;top: 10%;width: 2.3rem;text-align: center;color: #dc3939}
+		.sec2 .items{font-size: 1.3rem; position: absolute; left: 2.15rem;top: 21%;width: 3.2rem;text-align: center;color: #dc3939;}
+		/*.sec1 img:nth-child(1){position: absolute;left: 0.4rem;top: 8.2rem;width: 9rem;height: 7rem;}
+		.sec1 img:nth-child(2){position: absolute;left: 8.4rem;top: 16.2rem;width: .7rem;height: 1rem;} */
+		.sec3 .bigScore .scores{font-size: 1.2rem; position: absolute;left: 3.2rem;top: 10%;width: 4rem;text-align: center;color: #dc3939;}
+		.sec3 .bigScore .rebate{font-size: 1.2rem;position: absolute;left: 4.1rem;top: 21%;width: 2.8rem;text-align: center;color: #dc3939;}
+		.sec3 .bigScore img{position: absolute;left: 15%;bottom: 11%;width: 66%;}
+		.sec3 .smallScore img{position: absolute;left: 19%;bottom: 8%;width: 66%;}
+		.sec4 img{position: absolute;left: 11%; bottom: 8%;width: 77%;}
+		.sec5 img{position: absolute;left: 13%; bottom: 11%;width: 75%;}
+        .sec5 .plays{font-size: 1.2rem;position: absolute;left: 3.8rem;top: 11%;width: 2.4rem;text-align: center;color: #dc3939;}
+        .sec5 .moneys{font-size: 1.2rem; position: absolute;left: 3.8rem;top: 22%;width: 3.5rem; text-align: center;color: #dc3939;}
+        .sec6 .bigExperience img{position: absolute;left: 11%;bottom:8%;width: 70%;}
+		.sec6 .smallExperience img{position: absolute;left: 11%;bottom:8%;width: 70%;}
+        .sec6 .bigExperience .shopMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 11%;width: 3.5rem; text-align: center;color: #dc3939;}
+        .sec6 .bigExperience .someMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 21%;width: 3.5rem; text-align: center;color: #dc3939;}
+        .sec6 .bigExperience .newMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 31%;width: 3.5rem; text-align: center;color: #dc3939;}
+        .sec7 img{position: absolute;left: 22%;bottom:17%;width: 57%;}
+        .sec7 .share{width: 6.5rem;height: 1rem;background: #fb383e;position: absolute;left:1.7rem;bottom: .8rem;text-align: center;color: #fff;font-size: 0.5rem;line-height: 0.9rem;border-radius: 20px;}
+        .sec7 .home{font-size: 1rem;color: #fff;position: absolute;right: 0.5rem;top:.5rem;}
+	</style>
+<body>
+   <!-- 第一页 -->
+	<div class="section sec1">
+		<span>20%</span>
+		<span>20%</span>
+		<span>20%</span>
+		<span>20%</span>
+		<span>20%</span>
+	</div>
+	<!-- 第二页 -->
+	<div class="section sec2">
+       <img src="image/mouse_3@2x.png">
+       <p class="times">23</p>
+       <p class="items">113</p>
+	</div>
+	<!-- 第三页 -->
+	<div class="section sec3">
+		<!-- 消费积分大于4000分与返利 -->
+		<div class="bigScore">
+			<img src="image/mouse_4@2x.png">
+			<p class="scores">12223</p>
+			<p class="rebate">233</p>
+		</div>
+		<!-- 消费积分小于4000分 -->
+        <div class="smallScore">
+        	<img src="image/mouse_12@2x.png">
+        </div>
+	</div>
+	<!-- 第四页 -->
+	<div class="section sec4">
+       <img src="image/mouse_5@2x.png">
+	</div>
+	<!-- 第五页 -->
+    <div class="section sec5">
+    	<img src="image/mouse_6@2x.png">
+        <p class="plays">23</p>
+        <p class="moneys">6000</p>
+	</div>
+	<!-- 第六页 -->
+	<div class="section sec6">
+        <!-- 体验积分大于3000分与返利 -->
+		<div class="bigExperience">
+			<img src="image/mouse_7@2x.png">
+			<p class="shopMoney">20</p>
+			<p class="someMoney">20</p>
+			<p class="newMoney">20</p>
+		</div>
+		<!-- 体验积分小于3000分 -->
+        <div class="smallExperience">
+        	<img src="image/mouse_11@2x.png">
+        </div>
+	</div>
+	<!-- 第七页 -->
+	<div class="section sec7">
+		<img src="image/mouse_8@2x.png">
+		<div class="share">我要分享</div>
+		<span class="icon iconfont home">&#xe626;</span>
+        <!-- <div class="member">半山会员</div> -->
+        <!-- <div class="nomember">不是半山会员</div> -->
+	</div>
+
+
+	<script type="text/javascript">
+		$(function(){
+	      var pageSlider = PageSlider.case();
+		    // ---------------3--------------------------
+            var score = 3000;//假如是消费4000积分
+            if(+score >= 4000){
+              $(".bigScore").css("display","blcok");
+              $(".sec3").css("background","url('image/bg_4@2x.jpg') 0 0/100% 100%")
+              $(".smallScore").css("display","none");
+            }else{
+              $(".smallScore").css("display","blcok");
+              $(".sec3").css("background","url('image/bg_12@2x.jpg') 0 0/100% 100%")
+              $(".bigScore").css("display","none");
+            }
+            // ---------------6--------------------------
+            var experience = 2000;//体验积分
+            if(+experience >= 3000){
+              $(".bigExperience").css("display","blcok");
+              $(".sec6").css("background","url('image/bg_7@2x.jpg') 0 0/100% 100%")
+              $(".smallExperience").css("display","none");
+            }else{
+              $(".smallExperience").css("display","blcok");
+              $(".sec6").css("background","url('image/bg_11@2x.jpg') 0 0/100% 100%")
+              $(".bigExperience").css("display","none");
+            }
+            // -------------7半山会员---------------
+            var member = true;
+            if(member){
+              $(".sec7").css("background","url('image/bg_8@2x.jpg') 0 0/100% 100%")
+            }else{//不是半山会员
+              $(".sec7").css("background","url('image/bg_8@2x.jpg') 0 0/100% 100%")
+            }          
+             // 点击按钮去分享
+           $('.share').on('touchend',function(){
+           	console.log("1")
+			window.location.href='share.html'
+		   })
+		   // 点击按钮回首页
+		   $(".home").on("touchend",()=>{
+		        window.location.href="home.html"
+		    })
+
+		});
+
+ 
+
+	</script>
+</body>
+</html>
+

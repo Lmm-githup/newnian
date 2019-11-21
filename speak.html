@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/d.js"></script>
+    <script src="js/iconfont.js"></script>
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style type="text/css">
+    	*{margin:0;padding: 0;}
+        html,body{background: #ce0000}
+    	.speak{width:100%;position: relative;}
+        .speak img{width: 100%}
+        .home{font-size: 1rem;color: #fff;position: absolute;right: 0.5rem;top:.5rem;}
+        
+    </style>
+</head>
+<body>
+	<div class="speak">
+		<img src="image/speak.jpg">
+        <span class="icon iconfont home">&#xe626;</span>
+	</div>
+</body>
+<script type="text/javascript">
+	$(".back").on("click",()=>{
+        window.history.go(-1);
+    })
+</script>
+</html>

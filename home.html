@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/d.js"></script>
+    <style type="text/css">
+        body,html{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+    	*{margin:0;padding: 0;}
+    	html,body{background: #ce0000}
+    	.home{width:100%;position: relative;}
+        .home img{width: 100%}
+        .leftBox{width: 3.5rem;height: 3rem;position:absolute;left: 1.1rem;top:5.7rem;}
+        .rightBox{width: 3.5rem;height: 3rem;position:absolute;left: 5.4rem;top:5.7rem;}
+        .leftBoximg,.rightBoximg{width: 100%;height: 100%;}
+        .name{position: absolute;left: 4rem;top:3.87rem;width:2.5rem;text-align: center;font-family: 黑体;font-weight: bold;color:#fff;}
+        .birthday{left: 6.8rem;top:14.3rem;}
+        .share{left: 6.8rem;top:16rem;}
+        .btn{
+        	width:2.3rem;height: 0.7rem;background: #d44d54;border-radius: 5px;text-align: center;position: absolute;font-size: 0.35rem;line-height: 0.7rem;color:#fff1ce; 
+        }
+        .speak{width: 1.8rem;height: 0.7rem;opacity: 0.8;background: #900100;position: absolute;right: 0.3rem;top:3rem;font-size: 0.35rem;text-align: center;line-height: 0.7rem;color: #ac4040;border-radius: 15px;}
+    </style>
+</head>
+<body>
+	<div class="home">
+		<img src="image/bg_13.jpg">
+		<p class="name">刘先生</p>
+		<div class="speak">活动说明</div>
+		<!-- 第一个盒子 -->
+		<div class="leftBox"><img class="leftBoximg"></div>
+		<!-- 第二个盒子 -->
+		<div class="rightBox"><img class="rightBoximg"></div>
+		<div class="btn birthday">去打开</div>
+		<div class="btn share">去转发</div>
+	</div>
+	<p>将海报转发到朋友圈</p> -->
+</body>
+<script type="text/javascript">
+	window.onload = ()=>{
+        // 判断第一个任务有没有完成
+        var leftBox = true,rightBox = false;
+        leftBox?$(".leftBoximg").attr("src","image/open.png"):$(".leftBoximg").attr("src","image/stop.png");
+        rightBox?$(".rightBoximg").attr("src","image/open.png"):$(".rightBoximg").attr("src","image/stop.png");
+        
+
+        // 点击去说明页
+        $('.speak').on('click',()=>{
+           window.location.href='speak.html'
+        })
+        // 点击去看档案
+		$(".birthday").on('click',()=>{
+			window.location.href='birthday.html'
+		})
+        $('.share').on('click',()=>{
+            window.location.href='share.html'
+        })
+	}
+</script>
+</html>

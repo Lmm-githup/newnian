@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<title></title>
+	<!--引入pageSlider所需样式表-->
+	<link rel="stylesheet" href="css/pageSlider.css">
+	<!--引入zepto.js-->
+	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<!--引入pageSlider.js文件-->
+	<script src="js/pageSlider.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="js/d.js"></script>
+	<style type="text/css">
+	    *{margin: 0;padding: 0;}
+	    body,html{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+		.sec1{
+			background: url("image/bg_1@2x.jpg");background-size: 100% 100%;
+		}
+		.sec2{
+			background: url("image/bg_1@2x.jpg");background-size: 100% 100%;
+		}
+		.sec3{
+			background: url("image/bg_2@2x.jpg");background-size: 100% 100%;
+		}
+		.sec1 img:nth-child(1){position: absolute;left: 10%;bottom: 21%;width: 85%;}
+		.sec1 img:nth-child(2){position: absolute;left: 8.5rem;bottom: 6%;width: 0.5rem;} 
+		.sec3 .center{width: 100%;text-align: center;margin-top:10%;}
+		.sec3 .center img{width: 55%}
+		/*.sec3 img:nth-child(1){position: absolute;left: 23%;bottom: 15%;width: 58%;}*/
+		.archives{width: 100%;margin:0.7rem auto;text-align: center;font-size: 0.7rem;}  
+		.contant{width: 80%;background: #ffce35;margin: 0 auto;font-size: 0.45rem;border-radius: 3px}
+		.contant div{line-height: 1rem;margin-left: 0.7rem}
+		.contant div input{border:none;font-size: 0.5rem;background: #ffce35;width:30%;border-bottom: 1.5px solid black;}
+		.contant div span{border-bottom: 1.5px solid black;}
+		.contant div:nth-child(1){padding-top:.5rem;}
+		.daytime{
+			font-size: 1.1rem;
+			margin-top: 1.5rem;
+			width: 100%;
+			text-align: center;font-weight: bold;
+		}
+		.daytime span{font-size: .5rem;width: 1rem;display: inline-block;text-align: center;}
+		.dayout{font-size: .5rem;margin-top: 0.4rem;padding-left: 0.9rem;font-weight: bold;}
+        .daywhere{font-size: 1.1rem;margin-top: 0.8rem;
+			width: 100%;
+			text-align: center;font-weight: bold;}
+		.daywhere span{font-size: .5rem}
+		.top{width: 1rem;color: #fff; position: absolute;left: 8.3rem;font-size: 0.5rem;font-weight: bold;bottom: 12%;}
+		.archivess{width: 6.5rem;height: 1rem;background: #fb383e;margin-left:1.8rem;margin-top:.6rem;text-align: center;color: #fff;font-size: 0.5rem;line-height: 1rem;border-radius: 20px;}
+	</style>
+<body>
+	<!--DOM结构-->
+	<!-- 第一页 -->
+	<div class="section sec1">
+		<img src="image/mouse_1@2x.png"/><img src="image/xia.png">
+		<p class="daytime">2018<span>年</span>2<span>年</span>27<span>日</span></p>
+		<p class="dayout">我出生了...</p>
+		<p class="daywhere"><span>出生于</span>常州购物中心</p>
+		<p class='top'>上滑继续</p>
+	</div>
+	<!-- 第一页 -->
+   <!-- 第二页 -->
+	<div class="section sec2">
+	  <p class="xinzuo"></p>
+	</div>
+   <!-- 第二页 -->
+   <!-- 第三页 -->
+	<div class="section sec3">
+		<div class="archives">小鼠档案</div>
+		<div class="contant">
+			<div>姓名&nbsp;&nbsp;&nbsp;<span style="border:none;"><input type="text" value="小叔叔" id="text">&nbsp;<img src="image/ic_modify@2x.png" id="edit" style="width: 0.5rem"></span>
+				</div>
+			<div>年龄&nbsp;&nbsp;&nbsp;<span>1年7月13天</span></div>
+			<div>生日&nbsp;&nbsp;&nbsp;<span>2月27日</span></div>
+			<div>星座&nbsp;&nbsp;&nbsp;<span>啥呢么</span></div>
+			<div>等级&nbsp;&nbsp;&nbsp;<span>什么卡</span></div>
+			<div style="height: 0.5rem"></div>
+	    </div>
+	    <div class="center"><img src="image/mouse@2x.png"></div>
+	    <div class="archivess">去看小鼠账单</div>
+	</div>
+
+	<script type="text/javascript">
+	  // 是什么星座
+      var value;
+		$(function(){
+			var pageSlider = PageSlider.case();//这个是拉动页面
+      // ---------------2--------------------------
+            xingzuo(7,8)//这个是星座
+            $('.xinzuo').html(`2我是${value}的老鼠`)
+      // ---------------3--------------------------
+            // 点击input聚焦
+            $('#edit').on('touchend',function(){
+            	focus()
+		   })
+           $('#text').on('touchend',function(){
+            	focus()
+		   })
+            // 点击其他地方失焦
+	        $(".sec3").on("touchend", function(e){
+	        	console.log(e.target.id)
+		      if(e.target.id == ""){
+		        $("#text").blur()
+		      }
+		    });
+		    // 点击去档案的按钮
+		    $('.archivess').on("touchend",function(){
+		    	window.location.href='archives.html'
+		    })
+
+		});
+
+ 
+
+    // 点击按钮聚焦
+    function focus(){
+     var val = $("#text").val();
+	 console.log(val)
+     $("#text").val("").focus().val(val);
+     $('.sec3').css("height",$(document).height()+"px")
+    }
+
+     function xingzuo(month,date) {
+		if (month == 1 && date >=20 || month == 2 && date <=18) {value = "水瓶座";}
+		if (month == 1 && date > 31) {value = "Huh?";}
+		if (month == 2 && date >=19 || month == 3 && date <=20) {value = "双鱼座";}
+		if (month == 2 && date > 29) {value = "Say what?";}
+		if (month == 3 && date >=21 || month == 4 && date <=19) {value = "白羊座";}
+		if (month == 3 && date > 31) {value = "OK. Whatever.";}
+		if (month == 4 && date >=20 || month == 5 && date <=20) {value = "金牛座";}
+		if (month == 4 && date > 30) {value = "I'm soooo sorry!";}
+		if (month == 5 && date >=21 || month == 6 && date <=21) {value = "双子座";}
+		if (month == 5 && date > 31) {value = "Umm ... no.";}
+		if (month == 6 && date >=22 || month == 7 && date <=22) {value = "巨蟹座";}
+		if (month == 6 && date > 30) {value = "Sorry.";}
+		if (month == 7 && date >=23 || month == 8 && date <=22) {value = "狮子座";}
+		if (month == 7 && date > 31) {value = "Excuse me?";}
+		if (month == 8 && date >=23 || month == 9 && date <=22) {value = "室女座";}
+		if (month == 8 && date > 31) {value = "Yeah. Right.";}
+		if (month == 9 && date >=23 || month == 10 && date <=22) {value = "天秤座";}
+		if (month == 9 && date > 30) {value = "Try Again.";}
+		if (month == 10 && date >=23 || month == 11 && date <=21) {value = "天蝎座";}
+		if (month == 10 && date > 31) {value = "Forget it!";}
+		if (month == 11 && date >=22 || month == 12 && date <=21) {value = "人马座";}
+		if (month == 11 && date > 30) {value = "Invalid Date";}
+		if (month == 12 && date >=22 || month == 1 && date <=19) {value = "摩羯座";}
+		if (month == 12 && date > 31) {value = "No way!";}
+    }
+
+         
+
+		//a标签无法触发跳转的问题用以下代码
+		// $(".to-form-link>a").on('touchend', function() {
+		// 	location.replace($(this).attr("href"));
+		// });
+	</script>
+</body>
+</html>
+
