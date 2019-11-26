@@ -84,9 +84,10 @@ var goPage = 1;
 			next = index == totalSec ? (this.opt.loop ? 1 : 0) : (index + 1);
 			prev = index == 1 ? (this.opt.loop ? totalSec : 0) : (index - 1);
 		}
-		goPage = cur;
-		if(goPage == 10){
-			alert("10")
+		goPage = cur;//当前在哪一页
+		var v_id = $(".section").eq(goPage-1).attr('id');//获取当前元素的id
+		if(v_id == "sec8Id"){
+			alert("完成第一个任务")
 		}
 		var $curSec = $('.sec' + cur);
 		var $nextSec = $('.sec' + next);

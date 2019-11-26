@@ -9,36 +9,25 @@
 </body>
 <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="js/d.js"></script>
+<script type="text/javascript" src="js/zhuce.js"></script>
 <script type="text/javascript">
-var boltime;
+// var zhucetime = "";//等于空就是没有注册
+var zhucetime = "Jul 8,2019";//2019年7月8日
+// var zhucetime = "Jul 8,2021";//2021年7月8日
 window.onload = ()=>{
-  time('Jan 1,2020','Jul 8,2019').then((x)=>{
+  localStorage.clear();
+  localStorage.setItem("zhucetime",zhucetime);//存储注册日
+  if(!zhucetime.length){//没有注册直接去注册页面
+  	window.location.href='login.html'
+  }else{//如果注册过判断是不是在2020年1月1日之前还是之后
+    time('Jan 1,2020',zhucetime).then((x)=>{
      if(x == "yes"){//如果是之前注册是
        window.location.href='home.html'
      }else{//如果不是之前注册的
-       window.location.href='login.html'
+       window.location.href='birthday.html'
      }
-  })
+   })
+  }
 }
-
-
- // 判断是否是某个时间之前   
-function time(time,newtime){
-  return new Promise((res,rej)=>{
-	if(Date.parse(newtime) <= Date.parse(time)){
-	     boltime = true;//就是在2020年1月1日之前注册的
-	     res("yes")
-	   }else{
-	     boltime = false;//不是在2020年1月1日之前注册 
-	     res("no")    
-	  }
-	})
-}
-
-
-  
-
-
-
 </script>
 </html>

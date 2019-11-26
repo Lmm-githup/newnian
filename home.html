@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="js/d.js"></script>
     <style type="text/css">
-        body,html{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+        body,html{font-family: "黑体";}
     	*{margin:0;padding: 0;}
     	html,body{background: #ce0000}
     	.home{width:100%;position: relative;}
@@ -16,7 +16,7 @@
         .leftBox{width: 3.5rem;height: 3rem;position:absolute;left: 1.1rem;top:5.7rem;}
         .rightBox{width: 3.5rem;height: 3rem;position:absolute;left: 5.4rem;top:5.7rem;}
         .leftBoximg,.rightBoximg{width: 100%;height: 100%;}
-        .name{position: absolute;left: 4rem;top:3.87rem;width:2.5rem;text-align: center;font-family: 黑体;font-weight: bold;color:#fff;}
+        .name{position: absolute;left: 4rem;top:3.87rem;width:2.5rem;text-align: center;font-family: 黑体;font-weight: bold;color:#fff;font-size: .5rem}
         .birthday{left: 6.8rem;top:14.3rem;}
         .share{left: 6.8rem;top:16rem;}
         .btn{
@@ -37,11 +37,10 @@
 		<div class="btn birthday">去打开</div>
 		<div class="btn share">去转发</div>
 	</div>
-	<p>将海报转发到朋友圈</p> -->
 </body>
 <script type="text/javascript">
 	window.onload = ()=>{
-        // 判断第一个任务有没有完成
+        // 判断第一个任务有没有完成leftBox  判断第二个任务有没有完成rightBox
         var leftBox = true,rightBox = false;
         leftBox?$(".leftBoximg").attr("src","image/open.png"):$(".leftBoximg").attr("src","image/stop.png");
         rightBox?$(".rightBoximg").attr("src","image/open.png"):$(".rightBoximg").attr("src","image/stop.png");
@@ -55,6 +54,7 @@
 		$(".birthday").on('click',()=>{
 			window.location.href='birthday.html'
 		})
+        // 点击去分享的页面
         $('.share').on('click',()=>{
             window.location.href='share.html'
         })

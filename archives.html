@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="css/iconfont.css">
 	<style type="text/css">
 	    *{margin: 0;padding: 0;}
-	    body,html{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+	    body,html{font-family: "黑体";}
 		.sec1{
 			background: url("image/bg_15@2x.jpg");background-size: 100% 100%;
 		}
@@ -79,9 +79,11 @@
         .sec6 .bigExperience .shopMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 11%;width: 3.5rem; text-align: center;color: #dc3939;}
         .sec6 .bigExperience .someMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 21%;width: 3.5rem; text-align: center;color: #dc3939;}
         .sec6 .bigExperience .newMoney{font-size: 1.2rem; position: absolute;left: 4.8rem;top: 31%;width: 3.5rem; text-align: center;color: #dc3939;}
-        .sec7 img{position: absolute;left: 22%;bottom:17%;width: 57%;}
-        .sec7 .share{width: 6.5rem;height: 1rem;background: #fb383e;position: absolute;left:1.7rem;bottom: .8rem;text-align: center;color: #fff;font-size: 0.5rem;line-height: 0.9rem;border-radius: 20px;}
-        .sec7 .home{font-size: 1rem;color: #fff;position: absolute;right: 0.5rem;top:.5rem;}
+        .sec7img{position: absolute;left: 22%;bottom:17%;width: 57%;}
+        .shareImg{width: 100%;height: 100%}
+        .shareMouse{position: absolute;top:27%;left: 16%;width:6rem;}
+        .shareOpen{width: 6.4rem;height: 1rem;background: #fb383e;text-align: center;color: #fff;font-size: 0.5rem;line-height: 1rem;border-radius: 20px;margin:0 auto;position: absolute;bottom: 4%;left:50%;margin-left:-3.2rem;}
+        .home{font-size: 1rem;color: #fff;position: absolute;right: 0.5rem;top:.5rem;}
 	</style>
 <body>
    <!-- 第一页 -->
@@ -135,19 +137,22 @@
         	<img src="image/mouse_11@2x.png">
         </div>
 	</div>
-	<!-- 第七页 -->
-	<div class="section sec7">
-		<img src="image/mouse_8@2x.png">
-		<div class="share">我要分享</div>
+	<!-- 第七页（判断是不是半山会员） -->
+	<div class="section sec7" id="sec7Id">
+		<img src="image/mouse_8@2x.png" class="sec7img">
+	</div>
+	<!-- 第八页 -->
+	<div class="section sec8" id="sec8Id">
+		<img src="image/bg_9@2x.jpg" class="shareImg">
+		<img src="image/mouse_9@2x.png" class="shareMouse">
+		<div class="shareOpen">转发到朋友圈</div>
 		<span class="icon iconfont home">&#xe626;</span>
-        <!-- <div class="member">半山会员</div> -->
-        <!-- <div class="nomember">不是半山会员</div> -->
 	</div>
 
 
 	<script type="text/javascript">
 		$(function(){
-	      var pageSlider = PageSlider.case();
+	        var pageSlider = PageSlider.case();//下拉翻页
 		    // ---------------3--------------------------
             var score = 3000;//假如是消费4000积分
             if(+score >= 4000){
@@ -171,26 +176,24 @@
               $(".bigExperience").css("display","none");
             }
             // -------------7半山会员---------------
-            var member = true;
+            var member = false;//true是半山会员
             if(member){
-              $(".sec7").css("background","url('image/bg_8@2x.jpg') 0 0/100% 100%")
+              $("#sec7Id").addClass("sec7");//是会员就存在第七页
+              $("#sec7Id").css("background","url('image/bg_8@2x.jpg') 0 0/100% 100%");
+              $("#sec8Id").addClass("sec8");//给元素添加class存在第八页
             }else{//不是半山会员
-              $(".sec7").css("background","url('image/bg_8@2x.jpg') 0 0/100% 100%")
+              $("#sec7Id").remove();//把第七页删除
+              $("#sec8Id").removeClass('sec8');//把第八页的sec8移除换成sec7
+              $("#sec8Id").addClass('sec7');
             }          
-             // 点击按钮去分享
-           $('.share').on('touchend',function(){
-           	console.log("1")
-			window.location.href='share.html'
-		   })
 		   // 点击按钮回首页
 		   $(".home").on("touchend",()=>{
 		        window.location.href="home.html"
 		    })
-
+		   $(".shareOpen").on('touchend',()=>{
+            alert("第二个任务完成")
+           })
 		});
-
- 
-
 	</script>
 </body>
 </html>
