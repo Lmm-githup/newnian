@@ -20,10 +20,18 @@
 	<link rel="stylesheet" href="css/iconfont.css">
 	<style type="text/css">
 	    *{margin: 0;padding: 0;}
-	    body,html{font-family: "黑体";}
+	    body,html{font-family: "黑体";position: relative;}
 		.sec1{
 			background: url("image/bg_15@2x.jpg");background-size: 100% 100%;
 		}
+		.hole0{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:57%;top:87%;}
+		.hole1{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:31%;top:81%;}
+		.hole2{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:61%;top:74%;}
+		.hole3{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:31%;top:67%;}
+		.hole4{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:61%;top:59%;}
+		.hole5{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:31%;top:52%;}
+		.hole6{width: 1rem;height: 1rem;/*background: blue;*/position: absolute;left:41%;top:41%;}
+        .animationMouse img{width: 1rem;}
 		.sec2{
 			background: url("image/bg_3@2x.jpg");background-size: 100% 100%;
 		}
@@ -34,31 +42,11 @@
 		.sec4{background: url('image/bg_5@2x.jpg') 0 0/100% 100%;}
 		.sec5{background: url('image/bg_6@2x.jpg') 0 0/100% 100%;}
 		.sec1 span{font-size: .3rem;color: #fff;}
-		.sec1 span:nth-child(1){
-			position: absolute;
-		    left: 25.6%;
-		    top: 50.2%;
-		}
-		.sec1 span:nth-child(2){
-			position: absolute;
-		    left: 70.5%;
-		    top: 58%;
-		}
-		.sec1 span:nth-child(3){
-			position: absolute;
-			left: 25.6%;
-			top:63.7%;
-		}
-		.sec1 span:nth-child(4){
-			position: absolute;
-			left: 70.5%;
-			top:72%;
-		}
-		.sec1 span:nth-child(5){
-			position: absolute;
-			left: 24.6%;
-			top:80%;
-		}
+		.sec1 span:nth-child(1){position: absolute;left: 25.6%;top: 50.2%;}
+		.sec1 span:nth-child(2){position: absolute;left: 70.5%;top: 58%;}
+		.sec1 span:nth-child(3){position: absolute;left: 25.6%;top:63.7%;}
+		.sec1 span:nth-child(4){position: absolute;left: 70.5%;top:72%;}
+		.sec1 span:nth-child(5){position: absolute;left: 24.6%;top:80%;}
 		.sec2 img{
 			 position: absolute;left: 23%;bottom:11%;width: 60%;
 		}
@@ -93,6 +81,13 @@
 		<span>20%</span>
 		<span>20%</span>
 		<span>20%</span>
+		<div class="animationMouse hole0"><img src="image/mouse@2x.png"></div>
+		<div class="animationMouse hole1"></div>
+		<div class="animationMouse hole2"></div>
+		<div class="animationMouse hole3"></div>
+		<div class="animationMouse hole4"></div>
+		<div class="animationMouse hole5"></div>
+		<div class="animationMouse hole6"></div>
 	</div>
 	<!-- 第二页 -->
 	<div class="section sec2">
@@ -149,11 +144,33 @@
 		<span class="icon iconfont home">&#xe626;</span>
 	</div>
 
-
+    <script type="text/javascript" src="js/animotion.js"></script>
 	<script type="text/javascript">
 		$(function(){
 	        var pageSlider = PageSlider.case();//下拉翻页
-		    // ---------------3--------------------------
+	        // ------------1---------------
+	        var stop0 = document.querySelector(".hole0");
+	        var stop1 = document.querySelector(".hole1");
+	        var stop2 = document.querySelector(".hole2");
+	        var stop3 = document.querySelector(".hole3");
+	        var stop4 = document.querySelector(".hole4");
+	        var stop5 = document.querySelector(".hole5");
+	        var stop6 = document.querySelector(".hole6");
+	        parabola(stop0,stop1).then((res)=>{
+	                	if(res == "ok"){
+	                		parabola(stop1,stop2).then((res)=>{
+	                			parabola(stop2,stop3).then((res)=>{
+	                			    parabola(stop3,stop4).then((res)=>{
+	                			    	parabola(stop4,stop5).then((res)=>{
+	                			    	  parabola(stop5,stop6)
+	                			      })
+	                			    })
+	                		   })
+	                		})
+	                	}
+	             });
+            
+		 // ---------------3--------------------------
             var score = 3000;//假如是消费4000积分
             if(+score >= 4000){
               $(".bigScore").css("display","blcok");

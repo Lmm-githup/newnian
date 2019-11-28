@@ -2,8 +2,8 @@
     function focus(){
      var val = $("#text").val();
 	 console.log(val)
-     $("#text").val("").focus().val(val);
-     $('.sec3').css("height",$(document).height()+"px")
+     $("#text").val("").focus().val(val);//使聚焦在文字的最后面
+     $('.sec3').css("height",$(document).height()+"px")//阻止键盘弹起背景图的变形
     }
     // 判断星座
      function xingzuo(month,date) {
@@ -42,26 +42,26 @@
 
  // 判断相差年月日
  function howtime(start,current){
-           // var start = new Date(zhucetime);//初始化输入时间
-			var startYear = start.getFullYear();//获取输入年份
-			var startMonth = start.getMonth() + 1;//获取输入月份
-			var startDay = start.getDate();//获取输入日期
-		 
-			// var current = new Date();//当前时间
-			var currentYear = current.getFullYear();//获取当前年份
-			var currentMonth = current.getMonth() + 1;//获取当前月份
-			var currentDay = current.getDate();//获取当前日期
-			var years = 0;//声明一个年数变量
-			var months = currentMonth - startMonth + (currentYear - startYear) * 12;//总月
-			if (currentMonth * 100 + currentDay < startMonth * 100 + startDay) {
-				months--;//如果结束日期小月输入日期，月数要-1
-			}
-			years = Math.floor(months / 12);//取整计算年数
-		    months = months % 12;//取余计算月数
-			var middleDate = new Date(start);//中间时间
-			middleDate.setFullYear(startYear + years);//设置中间时间年份
-			middleDate.setMonth(start.getMonth() + months);//设置中间时间月份
-			var days =  Math.floor( ( current.getTime()- middleDate.getTime()) / 24 / 60/ 60 / 1000);//计算天数
-		    // alert('已经过去了'+years+'年'+months+'月'+days+'天');
-		    howtimes = years+'年'+months+'月'+days+'天'
+   // var start = new Date(zhucetime);//初始化输入时间
+	var startYear = start.getFullYear();//获取输入年份
+	var startMonth = start.getMonth() + 1;//获取输入月份
+	var startDay = start.getDate();//获取输入日期
+ 
+	// var current = new Date();//当前时间
+	var currentYear = current.getFullYear();//获取当前年份
+	var currentMonth = current.getMonth() + 1;//获取当前月份
+	var currentDay = current.getDate();//获取当前日期
+	var years = 0;//声明一个年数变量
+	var months = currentMonth - startMonth + (currentYear - startYear) * 12;//总月
+	if (currentMonth * 100 + currentDay < startMonth * 100 + startDay) {
+		months--;//如果结束日期小月输入日期，月数要-1
+	}
+	years = Math.floor(months / 12);//取整计算年数
+    months = months % 12;//取余计算月数
+	var middleDate = new Date(start);//中间时间
+	middleDate.setFullYear(startYear + years);//设置中间时间年份
+	middleDate.setMonth(start.getMonth() + months);//设置中间时间月份
+	var days =  Math.floor( ( current.getTime()- middleDate.getTime()) / 24 / 60/ 60 / 1000);//计算天数
+    // alert('已经过去了'+years+'年'+months+'月'+days+'天');
+    howtimes = years+'年'+months+'月'+days+'天'
  }
