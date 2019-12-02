@@ -10,7 +10,7 @@
 	<!--引入pageSlider所需样式表-->
 	<link rel="stylesheet" href="css/pageSlider.css">
 	<!--引入zepto.js-->
-	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<script src="https://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
 	<!--引入pageSlider.js文件-->
 	<script src="js/pageSlider.js"></script>
 	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
@@ -21,20 +21,20 @@
 		.sec1{
 			background: url("image/bg_1@2x.jpg");background-size: 100% 100%;
 		}
-		.sec2{
+		/*.sec2{
          background-image: linear-gradient(to bottom right, #565558 , #6c6b6e);color: #fff
 		}
 		.me{width: 100%;margin-top:2rem;font-size: .5rem;text-align: center;}
 		.meName{width: 100%;margin-top:1rem;text-align: center;font-size: .5rem}
-		.xinzuo,.cardMouse{font-size: 1rem}
-		.sec3{
+		.xinzuo,.cardMouse{font-size: 1rem}*/
+		.sec2{
 			background: url("image/bg_2@2x.jpg");background-size: 100% 100%;
 		}
 		.sec1 img:nth-child(1){position: absolute;left: 10%;bottom: 21%;width: 85%;}
 		.sec1 img:nth-child(2){position: absolute;left: 8.5rem;bottom: 6%;width: 0.5rem;} 
-		.sec3 .center{width: 100%;text-align: center;margin-top:10%;}
-		.sec3 .center img{width: 55%}
-		/*.sec3 img:nth-child(1){position: absolute;left: 23%;bottom: 15%;width: 58%;}*/
+		.sec2 .center{width: 100%;text-align: center;margin-top:6%;}
+		.sec2 .center img{width: 55%}
+		/*.sec2 img:nth-child(1){position: absolute;left: 23%;bottom: 15%;width: 58%;}*/
 		.archives{width: 100%;margin:0.7rem auto;text-align: center;font-size: 0.7rem;}  
 		.contant{width: 80%;background: #ffce35;margin: 0 auto;font-size: 0.45rem;border-radius: 3px}
 		.contant div{line-height: 1rem;margin-left: 0.7rem}
@@ -70,17 +70,17 @@
 	</div>
 	<!-- 第一页 -->
    <!-- 第二页 -->
-	<div class="section sec2">
+	<!-- <div class="section sec2">
 	  <p class="me">我是</p>
 	  <p class="meName"><span class="xinzuo"></span><text style="padding-left: 0.5rem;padding-right: 0.5rem">的</text><span class="cardMouse"></span></p>
 	  <p class="mousehei"><img src="image/mousehei.png"></p>
-	</div>
+	</div> -->
    <!-- 第二页 -->
    <!-- 第三页 -->
-	<div class="section sec3">
+	<div class="section sec2">
 		<div class="archives">小鼠档案</div>
 		<div class="contant">
-			<div>姓名&nbsp;&nbsp;&nbsp;<span style="border:none;"><input type="text" value="小鼠" id="text">&nbsp;<img src="image/ic_modify@2x.png" id="edit" style="width: 0.5rem"></span>
+			<div>姓名&nbsp;&nbsp;&nbsp;<span style="border:none;"><input type="text" value="小鼠" maxlength="4" id="text"/>&nbsp;<img src="image/ic_modify@2x.png" id="edit" style="width: 0.5rem"></span>
 				</div>
 			<div>年龄&nbsp;&nbsp;&nbsp;<span class="MouseAge"></span></div>
 			<div>生日&nbsp;&nbsp;&nbsp;<span class="MouseBirthday"></span></div>
@@ -109,10 +109,11 @@
             // 出生地点
             $(".daywhere").find("text").html("常州购物中心");
       // ---------------2--------------------------
-            xingzuo(month,day)//这个是星座传参（7是月份，8是日期）
-            $('.xinzuo').html(`${value}`);
-            $('.cardMouse').html("黑金鼠");//什么卡就是什么鼠
+            // xingzuo(month,day)//这个是星座传参（7是月份，8是日期）
+            // $('.xinzuo').html(`${value}`);
+            // $('.cardMouse').html("黑金鼠");//什么卡就是什么鼠
       // ---------------3--------------------------
+            xingzuo(month,day)//这个是星座传参（7是月份，8是日期）
 		    $(".MouseBirthday").html(`${month}月${day}日`);//生日
 		    $(".MouseXinzuo").html(`${value}`);//星座
 		    $(".MouseCard").html("黑金卡");//是什么卡
@@ -128,7 +129,7 @@
             	focus()
 		    })
             // 点击其他地方失焦
-	        $(".sec3").on("touchend", function(e){ 
+	        $(".sec2").on("touchend", function(e){ 
 	        	// console.log(e.target.id)
 		      if(e.target.id == ""){
 		        $("#text").blur()
@@ -136,7 +137,8 @@
 		    });
 		    // 点击去档案的按钮（新注册的会员去noscroe，老会员去srchives）
 		    $('.archivess').on("touchend",function(){
-				  time('Jan 1,2020',zhucetime).then((x)=>{
+		    	alert('假设注册时间'+zhucetime)
+				  time ('Jan 1,2020',zhucetime).then((x)=>{
 				     x == "yes"?window.location.href='archives.html':window.location.href='noscore.html'
 				   })
 		    })

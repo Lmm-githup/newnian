@@ -22,7 +22,7 @@
         .btn{
         	width:2.3rem;height: 0.7rem;background: #d44d54;border-radius: 5px;text-align: center;position: absolute;font-size: 0.35rem;line-height: 0.7rem;color:#fff1ce; 
         }
-        .speak{width: 1.8rem;height: 0.7rem;opacity: 0.8;background: #900100;position: absolute;right: 0.3rem;top:3rem;font-size: 0.35rem;text-align: center;line-height: 0.7rem;color: #ac4040;border-radius: 15px;}
+        .speak{width: 1.8rem;height: 0.7rem;opacity: 0.8;background: #900100;position: absolute;right: 0.3rem;top:3rem;font-size: 0.35rem;text-align: center;line-height: 0.7rem;color: #d5b4b4;border-radius: 15px;}
     </style>
 </head>
 <body>
@@ -44,8 +44,6 @@
         var leftBox = true,rightBox = false;
         leftBox?$(".leftBoximg").attr("src","image/open.png"):$(".leftBoximg").attr("src","image/stop.png");
         rightBox?$(".rightBoximg").attr("src","image/open.png"):$(".rightBoximg").attr("src","image/stop.png");
-        
-
         // 点击去说明页
         $('.speak').on('click',()=>{
            window.location.href='speak.html'
@@ -54,9 +52,11 @@
 		$(".birthday").on('click',()=>{
 			window.location.href='birthday.html'
 		})
-        // 点击去分享的页面
+        // 点击去分享
         $('.share').on('click',()=>{
-            window.location.href='share.html'
+           alert("第二个任务完成");
+           rightBox = true;
+           $(".rightBoximg").attr("src","image/open.png")
         })
 	}
 </script>
