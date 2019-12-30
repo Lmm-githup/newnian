@@ -30,7 +30,7 @@
 		.sec2{
 			background: url("image/bg_2@2x.jpg");background-size: 100% 100%;
 		}
-		.sec1 img:nth-child(1){position: absolute;left: 10%;bottom: 21%;width: 85%;}
+		.sec1 img:nth-child(1){position: absolute;left: 10%;bottom: 15%;width: 85%;}
 		.sec1 img:nth-child(2){position: absolute;left: 8.5rem;bottom: 6%;width: 0.5rem;} 
 		.sec2 .center{width: 100%;text-align: center;margin-top:6%;}
 		.sec2 .center img{width: 55%}
@@ -38,7 +38,7 @@
 		.archives{width: 100%;margin:0.7rem auto;text-align: center;font-size: 0.7rem;}  
 		.contant{width: 80%;background: #ffce35;margin: 0 auto;font-size: 0.45rem;border-radius: 3px}
 		.contant div{line-height: 1rem;margin-left: 0.7rem}
-		.contant div input{border:none;font-size: 0.45rem;background: #ffce35;width:30%;border-bottom: 1.5px solid black;}
+		.contant div input{-webkit-appearance: none;outline: none;border:none;font-size: 0.45rem;background: #ffce35;width:30%;border-bottom: 1.5px solid black;}
 		.contant div span{border-bottom: 1.5px solid black;}
 		.contant div:nth-child(1){padding-top:.5rem;}
 		.daytime{
@@ -62,7 +62,7 @@
 	<!--DOM结构-->
 	<!-- 第一页 -->
 	<div class="section sec1">
-		<img src="image/mouse_1@2x.png"/><img src="image/xia.png">
+		<img src="image/mouse_1@2x.png" class="_mouse"/><img src="image/xia.png">
 		<p class="daytime"><span class="year"></span>&nbsp;年&nbsp;<span class="month"></span>&nbsp;月&nbsp;<span class="day"></span>&nbsp;日&nbsp;</p>
 		<p class="dayout">我出生了...</p>
 		<p class="daywhere"><span>出生于</span><text></text></p>
@@ -101,7 +101,16 @@
 			var pageSlider = PageSlider.case();//这个是拉动页面
 			var zhucetime = window.localStorage.getItem("zhucetime");//获取注册时间
 			var date = new Date(zhucetime);
-            var year = date.getFullYear(),month = date.getMonth()+1,day = date.getDate();
+			var year = date.getFullYear(),month = date.getMonth()+1,day = date.getDate();
+			// var clientHeight = document.body.clientHeight;
+			// $(".section").css("height",clientHeight+"px")
+			if(clientHeight <= 667){
+			  $(".center img").css("width","40%");
+			  $(".archivess").css("marginTop",".3rem");
+			  $(".archives").css("margin","0.4rem auto");
+			  $("._mouse").css("width","75%").css("left","13%")
+			}
+			 
 	 // ---------1-------------------------
             $(".year").html(year);//获取年
             $(".month").html(month);//获取月数字
@@ -139,6 +148,7 @@
 		    $('.archivess').on("touchend",function(){
 		    	alert('假设注册时间'+zhucetime)
 				  time ('Jan 1,2020',zhucetime).then((x)=>{
+					  console.log(x)
 				     x == "yes"?window.location.href='archives.html':window.location.href='noscore.html'
 				   })
 		    })
