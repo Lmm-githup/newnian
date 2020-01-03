@@ -33,12 +33,12 @@
 		.sec1 img:nth-child(1){position: absolute;left: 10%;bottom: 15%;width: 85%;}
 		.sec1 img:nth-child(2){position: absolute;left: 8.5rem;bottom: 6%;width: 0.5rem;} 
 		.sec2 .center{width: 100%;text-align: center;margin-top:6%;}
-		.sec2 .center img{width: 55%}
+		.sec2 .center img{width: 42%}
 		/*.sec2 img:nth-child(1){position: absolute;left: 23%;bottom: 15%;width: 58%;}*/
-		.archives{width: 100%;margin:0.7rem auto;text-align: center;font-size: 0.7rem;}  
+		.archives{width: 100%;margin:0.4rem auto;text-align: center;font-size: 0.7rem;}  
 		.contant{width: 80%;background: #ffce35;margin: 0 auto;font-size: 0.45rem;border-radius: 3px}
 		.contant div{line-height: 1rem;margin-left: 0.7rem}
-		.contant div input{-webkit-appearance: none;outline: none;border:none;font-size: 0.45rem;background: #ffce35;width:30%;border-bottom: 1.5px solid black;}
+		.contant div input{-webkit-appearance: none;outline: none;border:none;font-size: 0.45rem;background: #ffce35;width:30%;border-bottom: 1.5px solid black;border-radius:0;}
 		.contant div span{border-bottom: 1.5px solid black;}
 		.contant div:nth-child(1){padding-top:.5rem;}
 		.daytime{
@@ -54,7 +54,7 @@
 			text-align: center;font-weight: bold;}
 		.daywhere span{font-size: .5rem}
 		.top{width: 1.2rem;color: #fff; position: absolute;left: 8.3rem;font-size: 0.5rem;font-weight: bold;bottom: 12%;}
-		.archivess{width: 6.5rem;height: 1rem;background: #fb383e;margin-left:1.8rem;margin-top:.6rem;text-align: center;color: #fff;font-size: 0.5rem;line-height: 1rem;border-radius: 20px;}
+		.archivess{width: 6.5rem;height: 1rem;background: #fb383e;margin-left:1.8rem;text-align: center;color: #fff;font-size: 0.5rem;line-height: 1rem;border-radius: 20px;position: absolute;bottom: 90px;}
 		.mousehei{margin: 12% auto;text-align: center;}
 		.mousehei img{width: 71%;}
 	</style>
@@ -102,14 +102,14 @@
 			var zhucetime = window.localStorage.getItem("zhucetime");//获取注册时间
 			var date = new Date(zhucetime);
 			var year = date.getFullYear(),month = date.getMonth()+1,day = date.getDate();
-			// var clientHeight = document.body.clientHeight;
+			var clientHeight = document.body.clientHeight;
 			// $(".section").css("height",clientHeight+"px")
-			if(clientHeight <= 667){
-			  $(".center img").css("width","40%");
-			  $(".archivess").css("marginTop",".3rem");
-			  $(".archives").css("margin","0.4rem auto");
-			  $("._mouse").css("width","75%").css("left","13%")
-			}
+			// if(clientHeight <= 667){
+			//   $(".center img").css("width","40%");
+			//   $(".archivess").css("marginTop",".3rem");
+			//   $(".archives").css("margin","0.4rem auto");
+			//   $("._mouse").css("width","75%").css("left","13%")
+			// }
 			 
 	 // ---------1-------------------------
             $(".year").html(year);//获取年
@@ -148,7 +148,6 @@
 		    $('.archivess').on("touchend",function(){
 		    	alert('假设注册时间'+zhucetime)
 				  time ('Jan 1,2020',zhucetime).then((x)=>{
-					  console.log(x)
 				     x == "yes"?window.location.href='archives.html':window.location.href='noscore.html'
 				   })
 		    })
